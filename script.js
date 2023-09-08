@@ -9,7 +9,8 @@
   document.getElementById("myTrack").innerHTML = myData.track;
 
   const myImg = document.querySelector("img")
-  myImg.src ="/slackdp.JPG";
+//   myImg.src ="/slackdp.JPG";
+myImg.src = "bag.png";
 
   const githubURL = document.querySelector("a")
   githubURL.href ="https://github.com/cherish-an1/hng-stageone.git";
