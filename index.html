@@ -3,42 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage One</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FRONT-END TRACK | STAGE ONE TASK</title>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+img {
+    max-width: 250px;
+    border-radius: 20%;
+    margin: 20px auto;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
 </head>
 <body>
+    <div class="container">
 
-    <div class="flex">
-        <h2>Slack name : </h2>
-        <p id="slackUserName"></p>
-    </div>
-   
-    <div class="flex">
-        <h2>Current day of the week : </h2>
-        <p id="currentDayOfTheWeek"></p>
+        <h1 data-testid="slackUserName">Helianthus</h1>
+        
+        <img src="slackdp.JPG" alt="Helianthus"  data-testid="slackDisplayImage">
 
-    </div>
-    
-    <div class="flex">
-        <h2>Current UTC Time :</h2>
-        <p id="currentUTCTime"></p>
-    </div>
+        <p data-testid="currentDayOfTheWeek">Monday</p>
 
-    <div class="flex">
-        <h2>Track : </h2>
-        <p id="myTrack"></p>
+        <p data-testid="currentUTCTime">8:00 PM</p>
+
+        <p data-testid="myTrack">Frontend Track</p>
+
+        <a href="https://github.com/cherish-an1/hng-stageone" data-testid="githubURL">GitHub Repository</a>
+
     </div>
 
-    <div class="flex">
-        <h2>Github : </h2>
-        <a>Click me</a>
-    </div>
 
-    <div clas="flex">
-        <h2>Slack Display picture : </h2>
-        <img alt="Helianthus"></img>
-    </div>
-    
-    <script src="script.js"></script>
+
+    <script>
+
+let time = document.querySelector(`[data-testid="currentUTCTime"]`);
+
+setInterval(() => {
+  const d = Date.now();
+  time.innerHTML = d;
+}, 100);
+
+    function updateDayOfWeek() {
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const currentDayElement = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+        const currentDate = new Date();
+        const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+        currentDayElement.textContent = currentDayOfWeek;
+    }
+    updateDayOfWeek();
+    </script>
 </body>
 </html>
